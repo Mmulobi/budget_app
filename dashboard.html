@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For chart rendering -->
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>Budget</h1>
+            </div>
+            <div class="categories">
+                <h2>Categories</h2>
+                <ul id="category-list">
+                    <!-- Dynamically generated categories -->
+                </ul>
+                <button class="btn add-category">Add New</button>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="content">
+            <!-- Budget Overview -->
+            <section class="budget-overview">
+                <div class="overview-item">
+                    <h3>Total Income</h3>
+                    <p id="total-income">$0.00</p>
+                </div>
+                <div class="overview-item">
+                    <h3>Total Expenses</h3>
+                    <p id="total-expenses">$0.00</p>
+                </div>
+                <div class="overview-item">
+                    <h3>Balance</h3>
+                    <p id="balance">$0.00</p>
+                </div>
+            </section>
+
+            <!-- Budget Summary Charts -->
+            <section class="budget-charts">
+                <div class="chart-container">
+                    <canvas id="income-expense-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="budget-summary-chart"></canvas>
+                </div>
+            </section>
+
+            <!-- Add Transaction Form -->
+            <section class="transaction-form">
+                <h2>Add New Transaction</h2>
+                <form id="transaction-form">
+                    <input type="number" id="amount" placeholder="Amount" required>
+                    <select id="category">
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                    <input type="text" id="description" placeholder="Description">
+                    <button type="submit">Save Transaction</button>
+                </form>
+            </section>
+
+            <!-- Transaction History -->
+            <section class="transaction-history">
+                <h2>Transaction History</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transaction-list">
+                        <!-- Dynamically filled -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="scripts/dashboard.js"></script>
+</body>
+</html>
